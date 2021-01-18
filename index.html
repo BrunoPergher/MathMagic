@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathMagic</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="font/material-icons.css">
+    <link rel="apple-touch-icon" href="icon.png">
+
+</head>
+
+<body class="body">
+    <div style="position: fixed;
+    right: 12%;
+    top: 10%;">
+        <p><span class="som02 mticons">volume_off</span></p>
+    </div>
+    <!-- inicio da section inicio -->
+    <section class="inicio">
+        <div class="fundo">
+
+
+            <div>
+                <button class="btn-math" disabled>MathMagic</button>
+            </div>
+
+            <div class="teste">
+                <button class="btn-jogar">Jogar</button>
+                <button class="btn-regras">Regras</button>
+            </div>
+        </div>
+    </section>
+    <!-- fim da section inicio -->
+
+
+
+
+    <!-- inicio da section regras -->
+    <section class="regras">
+        <div class="fundomaior">
+            <button class="btn-math">MathMagic</button>
+
+            <div>
+                <button class="rosa" disabled>
+                    <div class="locura">
+                        <h1>Regras</h1>
+                        <h2>O MathMagic é um jogo de equações matemáticas,
+                            começando do nível mais fácil ao mais difícil
+                            com uma pontuação coerente com o grau de dificuldade.
+                            Inicia com 60s e a cada nível é incrementado mais um numero inteiro a conta.
+                            Ganha quem atingir 10 pontos antes que o tempo acabe.
+                        </h2>
+                    </div>
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- fim da section regras -->
+
+
+
+
+    <!-- inicio da section jogo -->
+    <section class="jogo1">
+        <div class="fundomaior">
+            <h1>MathMagic</h1> <button class="barra">
+                <h2 id="temppo"><span class="tempo">60</span> s</h2>
+            </button>
+
+            <div>
+                <button class="rosa" disabled>
+                    <div id="output" class="locura">
+
+                    </div>
+                </button>
+
+                <button id="number1" class="btn-answer"></button>
+                <button id="number2" class="btn-answer"></button>
+                <button id="number3" class="btn-answer"></button>
+                <button id="number4" class="btn-answer"></button>
+            </div>
+        </div>
+    </section>
+    <!-- fim da section jogo -->
+
+    <!-- inicio da section game over -->
+    <section class="gameover">
+        <div class="fundo">
+
+
+            <div>
+                <button class="btn-gameover">Você Perdeu</button>
+            </div>
+
+            <div class="fundo2">
+                <div class="pontuacao">
+                    <h3 style="text-decoration: underline;">Pontos: </h3>
+                    <h3><span id="resultado" class="acertos"></span></h3>
+                    <br><br>
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- fim da section game over -->
+
+    <!-- inicio da section game winner -->
+    <section class="gamewinner">
+        <div class="fundo">
+            <!-- <div>
+            <button class="material-icon som">volume_off</button>
+        </div> -->
+
+            <div>
+                <button class="btn-gamewinner">VOCÊ VENCEU!</button>
+            </div>
+
+            <div class="fundo2">
+                <div class="pontuacao">
+                    <h3 style="text-decoration: underline;">Pontos:</h3>
+                    <h3><span class="acertos">10</span></h3>
+                    <br><br><br>
+                   
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- fim da section game winner -->
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+
+        var fim = false;
+
+        // musica ------------------------------------------------------------
+        music1 = new Audio('musica/baroes.mp3');
+        music1.play();
+
+        music2 = new Audio('musica/game-over.wav');
+        music2.play();
+
+        music3 = new Audio('musica/win.wav');
+        music3.play();
+
+        $("div p span.som02").on("click", function () {
+            var botao = $("span.som02").text();
+
+            if (botao == "volume_up") {
+                music1.pause();
+                $("span.som02").text("volume_off");
+
+            } else {
+
+                $("span.som02").text("volume_up");
+                music1.play();
+            }
+        });
+
+        //musica --------------------------------------------
+
+        $("section.regras").hide();
+        $("section.jogo1").hide();
+        $("section.gameover").hide();
+        $("section.gamewinner").hide();
+
+        $("section.inicio button.btn-regras").on("click", function () {
+            $("section.inicio").hide();
+            $("section.regras").show();
+        })
+
+        $("section.regras button.btn-math").on("click", function () {
+            $("section.regras").hide();
+            $("section.inicio").show();
+        })
+
+        $("section.inicio button.btn-jogar").on("click", function () {
+            $("section.inicio").hide();
+            $("section.jogo1").show();
+            
+            var timer = setInterval(function() {
+                if (fim === true) {
+                    
+                    results = 0;
+                    level = 2;
+                    tempo = 61;
+                    clearInterval(timer);
+                    $("span.tempo").text(tempo);
+                }
+                
+                fim = false;
+                
+                var tempo = parseInt($("span.tempo").text());
+               
+                tempo--;
+
+                if (tempo < 0 ) {
+                    $("section.jogo1").hide();
+                    $("section.gameover").show();
+
+                   
+                    music2 = new Audio('musica/game-over.wav');
+                    music2.play();
+                    document.getElementById('resultado').innerHTML = results;
+                    results = 0;
+                    level = 2;
+                    tempo = 60;
+                    clearInterval(timer);
+                }
+
+                
+                $("span.tempo").text(tempo);
+            }, 1000)
+        });
+
+        //sequencia das questoes ---------------------------------------------
+        $("section.jogo1 button.btn-answer").on("click", function () {
+
+            var aa = $(this).text();;
+            console.log(results);
+            console.log(Number(aa) === resultado);
+            if (Number(aa) === resultado) {
+                results++;
+
+                if (results == 5) {
+                    level++;
+                }
+                if (results == 8) {
+                    level++;
+                }
+
+
+                if (results == 10) {
+                    level = 2;
+                    document.getElementById('resultado').innerHTML = results;
+                    results = 0;
+                    $("section.jogo1").hide();
+                    $("section.gamewinner").show();
+                    createExpression(level);
+                    fim = true;
+
+                    music3 = new Audio('musica/win.wav');
+                    music3.play();
+                }
+                else {
+                    createExpression(level);
+                }
+            }
+            else {
+                $("section.jogo1").hide();
+                $("section.gameover").show();
+                document.getElementById('resultado').innerHTML = results;
+                music2 = new Audio('musica/game-over.wav');
+                music2.play();
+                level = 2;
+                results = 0;
+                fim = true;
+
+
+
+                createExpression(level);
+            }
+
+        })
+
+        //sequencia das questoes ---------------------------------------------
+
+        $("section.gamewinner button.btn-gamewinner").on("click", function () {
+            $("section.gamewinner").hide();
+            $("section.inicio").show();
+
+        })
+
+        $("section.gameover button.btn-gameover").on("click", function () {
+            $("section.gameover").hide();
+            $("section.inicio").show();
+        })
+
+        var results = 0;
+        var resultado = 0;
+        var numberIds = ["number1", "number2", "number3", "number4"];
+
+
+
+        // shuffle(numberIds);
+        console.log(numberIds);
+        var x = ['-', '+'];
+        var level = 2;
+
+
+
+        var TreeNode = function (left, right, operator) {
+            this.left = left;
+            this.right = right;
+            this.operator = operator;
+            this.conta = left + operator + right;
+
+            this.toString = function () {
+                return left + ' ' + operator + ' ' + right;
+            }
+
+            this.conta = function () {
+                return conta;
+            }
+        }
+
+        createExpression(2);
+
+        function createExpression(level) {
+            var tree = buildTree(level);
+            $('#output').text(tree.toString());
+            resultado = eval(tree.toString());
+            document.getElementById(numberIds[0]).innerHTML = resultado;
+
+            var alt1 = resultado - 10;
+            var alt2 = resultado + 10;
+
+            function getRandom(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            let alternativas = [];
+            while (alternativas.length < 4) {
+                let randoNumber = getRandom(alt1, alt2);
+                if (alternativas.indexOf(randoNumber) < 0 && randoNumber !== resultado) {
+                    alternativas.push(randoNumber);
+                }
+            }
+
+
+
+            document.getElementById(numberIds[1]).innerHTML = alternativas[1];
+            document.getElementById(numberIds[2]).innerHTML = alternativas[2];
+            document.getElementById(numberIds[3]).innerHTML = alternativas[3];
+            var cards = $(".btn-answer");
+            for (var i = 0; i < cards.length; i++) {
+                var target = Math.floor(Math.random() * cards.length - 1) + 1;
+                var target2 = Math.floor(Math.random() * cards.length - 1) + 1;
+                cards.eq(target).before(cards.eq(target2));
+            }
+        }
+
+        function buildTree(numNodes) {
+            if (numNodes === 1)
+                return randomNumberRange(1, 50);
+
+            var numLeft = Math.floor(numNodes / 2);
+            var leftSubTree = buildTree(numLeft);
+            var numRight = Math.ceil(numNodes / 2);
+            var rightSubTree = buildTree(numRight);
+
+            var m = randomNumberRange(0, x.length);
+            var str = x[m];
+            return new TreeNode(leftSubTree, rightSubTree, str);
+        }
+
+        function randomNumberRange(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+    </script>
+
+</body>
+
+</html>

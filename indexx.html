@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathMagic</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body class="body">
+
+    <!-- inicio da section inicio -->
+    <section class="inicio">
+        <div class="fundo">
+
+
+            <div>
+                <button class="btn-math" disabled>MathMagic</button>
+            </div>
+
+            <div class="teste">
+                <button class="btn-jogar">Jogar</button>
+                <button class="btn-regras">Regras</button>
+            </div>
+        </div>
+    </section>
+    <!-- fim da section inicio -->
+
+
+
+
+    <!-- inicio da section regras -->
+    <section class="regras">
+        <div class="fundomaior">
+            <button class="btn-math">MathMagic</button>
+
+            <div>
+                <button class="rosa" disabled>
+                    <div class="locura">
+                        <h1>Regras</h1>
+                        <h2>O MathMagic é um jogo de equações matemáticas,
+                            começando do nível mais fácil ao mais difícil
+                            com uma pontuação coerente com o grau de dificuldade.
+                            o jogo Inicia com 60s e o objetivo é acertar 10 questões.
+                            Ganha quem atingir 10 pontos antes que o tempo acabe.
+                        </h2>
+                    </div>
+                </button>
+
+            </div>
+            <!-- <div>
+                <button class="material-icon som">volume_off</button>
+            </div> -->
+        </div>
+    </section>
+    <!-- fim da section regras -->
+
+
+
+
+    <!-- inicio da section jogo -->
+    <section class="jogo1">
+        <div class="fundomaior">
+            <h1>MathMagic</h1> <button class="barra"> 
+                <h2 id="temppo">TEMPO: 00:<span class="tempo">30</span></h2>
+                <h2>PONTOS: <span class="acertos">0</h2>
+                 </button>
+
+            <div>
+                <button class="rosa" disabled>
+                    <div id="output" class="locura">
+                        
+                    </div>
+                </button>
+                <div>
+                <button class="btn-errado">4</button>
+                </div>
+                <button class="btn-errado">7</button>
+                <button class="btn-errado">5</button>
+                <button class="btn-certo">9</button>
+            </div>
+        </div>
+    </section>
+    <!-- fim da section jogo -->
+
+    <!-- inicio da section game over -->
+    <section class="gameover">
+        <div class="fundo">
+            <!-- <div>
+            <button class="material-icon som">volume_off</button>
+        </div> -->
+
+            <div>
+                <button class="btn-gameover">GAMEOVER!</button>
+            </div>
+
+            <div class="fundo2">
+                <div class="pontuacao">
+                    <h3 style="text-decoration: underline;">Pontos:</h3>
+                    <h3><span class="acertos">xxxx</span></h3>
+                    <br><br>
+                    <h3 style="text-decoration: underline;">% de acertos</h3>
+                    <h3><span class="porAcertos"></span>xxx %</h3>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- fim da section game over -->
+
+    <!-- inicio da section game winner -->
+    <section class="gamewinner">
+        <div class="fundo">
+            <!-- <div>
+            <button class="material-icon som">volume_off</button>
+        </div> -->
+
+            <div>
+                <button class="btn-gamewinner">GAMEWINNER!</button>
+            </div>
+
+            <div class="fundo2">
+                <div class="pontuacao">
+                    <h3 style="text-decoration: underline;">Pontos:</h3>
+                    <h3><span class="acertos">xxxx</span></h3>
+                    <br><br>
+                    <h3 style="text-decoration: underline;">Tempo:</h3>
+                    <h3> <span class="erros">xx:xx</span> </h3>
+                    <br><br>
+                    <h3 style="text-decoration: underline;">% de acertos</h3>
+                    <h3><span class="porAcertos"></span>xxx %</h3>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- fim da section game winner -->
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+
+        $("section.regras").hide();
+        $("section.jogo1").hide();
+        $("section.gameover").hide();
+        $("section.gamewinner").hide();
+        
+        var acertos = 0;
+
+        $("section.inicio button.btn-regras").on("click", function () {
+            $("section.inicio").hide();
+            $("section.regras").show();
+        })
+
+        $("section.regras button.btn-math").on("click", function () {
+            $("section.regras").hide();
+            $("section.inicio").show();
+        })
+
+        $("section.inicio button.btn-jogar").on("click", function () {
+            $("section.inicio").hide();
+            $("section.jogo1").show();
+
+            var timer = setInterval(function() {
+                var tempo = parseInt($("span.tempo").text());
+    
+                tempo--;
+                if (tempo == 0) {
+                    document.getElementById("tempo").style.display = "none";
+                    $("section.jogo1").hide();
+                    $("section.gameover").show();
+                    clearInterval(timer);
+                } else if (acertos == true){
+                    tempo+=10;
+                    acetos = false
+                }
+                $("span.tempo").text(tempo);
+            }, 1000)
+            });
+
+
+        $("section.jogo1 button.btn-certo").on("click", function () {
+            acertos++;
+
+            $("span.acertos").text(acertos);
+
+            if(acertos == 5){
+                $("section.jogo1").hide();
+                $("section.gamewinner").show();
+            }
+            
+        })
+
+        $("section.jogo1 button.btn-errado").on("click", function () {
+            $("section.jogo1").hide();
+            $("section.gameover").show();
+        })
+
+        $("section.gamewinner button.btn-gamewinner").on("click", function () {
+            $("section.gamewinner").hide();
+            $("section.inicio").show();
+        })
+
+        $("section.gameover button.btn-gameover").on("click", function () {
+            $("section.gameover").hide();
+            $("section.inicio").show();
+        })
+
+        var TreeNode = function (left, right, operator) {
+            this.left = left;
+            this.right = right;
+            this.operator = operator;
+
+            this.toString = function () {
+                return left + ' ' + operator + ' ' + right ;
+            }
+        }
+
+        function randomNumberRange(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        var x = ['/', '*', '-', '+'];
+
+        function buildTree(numNodes) {
+            if (numNodes === 1)
+                return randomNumberRange(1, 50);
+
+            var numLeft = Math.floor(numNodes / 2);
+            var leftSubTree = buildTree(numLeft);
+            var numRight = Math.ceil(numNodes / 2);
+            var rightSubTree = buildTree(numRight);
+
+            var m = randomNumberRange(0, x.length);
+            var str = x[m];
+            return new TreeNode(leftSubTree, rightSubTree, str);
+        }
+        var input = 'level 3';
+        input = input.split(' ');
+        var n = Number(input[1]);
+
+        $('#output').text(buildTree(n).toString());
+        var resultado = $('#output').text(buildTree(n).toString());
+        document.getElementById("mydiv").innerHTML = myvar;
+
+
+    </script>
+
+</body>
+
+</html>

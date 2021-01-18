@@ -1,0 +1,501 @@
+/* === LOAD FONTS === */
+@font-face {
+    font-family: 'Pixellari';
+    src: url('../font/Pixellari.ttf');
+    
+}
+
+@font-face {
+    font-family: 'mticons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../font/MaterialIcons-Regular.ttf);
+  }
+
+.mticons{
+   font-family:mticons;
+   font-size: 5em;
+}
+
+.faicons{
+   font-family:faicons;
+}
+
+body{
+    background:  url(../img/fundomath.jpg);
+    background-size: 50% auto, auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+    
+/*Section INICIO*/
+section.inicio div.fundo{
+    /*display: none;*/
+    background-color: rgba(255, 255, 255, 0.85);
+    width: 33vw;
+    height: 80vh;
+    border-radius: 60px;
+    padding: 25px;
+    -webkit-box-shadow: 0px 17px 75px 9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 17px 75px 9px rgba(0,0,0,0.75);
+    box-shadow: 0px 17px 75px 9px rgba(0,0,0,0.75);
+    align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+section.inicio{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+}
+
+.teste{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 37%;  
+}
+
+.teste button{
+    /* margin: 30px; */
+    width: 100%;
+    margin-top: 60px;
+}
+
+section.inicio div button{
+    background: none;
+    border: none;
+    /* color: white; */
+    
+}
+
+section.inicio button.btn-math{
+    text-align: center;
+    background-color:#707070;
+    border: none;
+    color: white;
+    font-size: 2.5em;
+    border-radius: 50px;
+    width: 25vw;
+    height: 5vw;
+    margin-top: 50px;
+    margin-bottom: 10vh;
+}
+section.inicio div button{
+    background-color:#FA58D0;
+    border: none;
+    color: white;
+    font-size: 1.8em;
+    padding: 2vh 4vh;
+    border-radius: 50px;
+    width: 25vw;
+    height: 5vw;
+    font-family: 'Pixellari';
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+section.inicio button.btn-jogar{
+    background-color:#FA58D0;
+    border: none;
+    color: white;
+    font-size: 1.8em;
+    padding: 2vh 4vh;
+    margin-top: 2vh;
+    margin-bottom: 0vh;
+    border-radius: 50px;
+    width: 25vw;
+    height: 5vw;
+    font-family: 'Pixellari';
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+}
+section.inicio button.btn-jogar:hover{
+    background-color: #FF72FF;
+}
+section.inicio button.btn-regras{
+    background-color:#FA58D0;
+    border: none;
+    color: white;
+    font-size: 1.8em;
+    padding: 2vh 4vh;
+    margin-top: 0vh;
+    margin-bottom: 0vh;
+    border-radius: 50px;
+    width: 25vw;
+    height: 5vw;
+    font-family: 'Pixellari';
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+}
+section.inicio button.btn-regras:hover{
+    background-color: #FF72FF;
+}
+/*Section INICIO fim*/
+
+/*Section Regras*/
+section.regras{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+}
+
+section.regras button.btn-math{
+    text-align: center;
+    background-color:#707070;
+    border: none;
+    color: white;
+    font-size: 2.5em;
+    border-radius: 50px;
+    width: 25vw;
+    height: 5vw;
+    margin-top: 5px;
+    margin-bottom: 8vh;
+    font-family: 'Pixellari';
+    -webkit-box-shadow: 0px 10px 37px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 37px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 37px 0px rgba(0,0,0,0.75);
+}
+section.regras button.btn-math:hover{
+    background-color: #FF72FF;
+}
+.fundomaior{
+    background-color: rgba(255, 255, 255, 0.85);
+    width: 60vw;
+    height: 70vh;
+    border-radius: 60px;
+    padding: 25px;
+    -webkit-box-shadow: 0px 17px 75px 9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 17px 75px 9px rgba(0,0,0,0.75);
+    box-shadow: 0px 17px 75px 9px rgba(0,0,0,0.75);
+}
+.fundomaior button{
+    text-align: center;
+    margin-top: -10px;
+}
+section.regras button.rosa{
+    text-align: center;
+    background-color: #FA58D0;
+    border: none;
+    color: white;
+    font-size: 2.3em;
+    border-radius: 40px;
+    width: 50vw;
+    height: 20vw;
+    -webkit-box-shadow: 0px 10px 37px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 37px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 37px 0px rgba(0,0,0,0.75);
+}
+section.regras h1{
+    font-size: 35px;
+    font-family: 'Pixellari';
+    text-decoration: underline white;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+section.regras h2{
+    font-size: 25px;
+    text-align: justify;
+    font-family: 'Pixellari';
+    margin-left: 20px;
+    margin-right: 20px;
+}
+/*Section Regras fim*/
+
+
+/*Section jogo inicio*/
+.fundomaior{
+    background-color: rgba(255, 255, 255, 0.85);
+    width: 60vw;
+    height: 70vh;
+    border-radius: 60px;
+    padding: 25px;
+    -webkit-box-shadow: 0px 17px 75px 9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 17px 75px 9px rgba(0,0,0,0.75);
+    box-shadow: 0px 17px 75px 9px rgba(0,0,0,0.75);
+}
+section.jogo1 h1{
+    font-family: 'Pixellari';
+    text-align: left;
+    margin-left: 60px;
+    margin-top: 15px;
+    color: #707070;
+    font-size: 2.5em;
+}
+section.jogo1 button.barra{
+    float: right;
+    background-color:#707070;
+    border: none;
+    border-radius: 40px;
+    margin-top: -50px;
+    margin-right: 60px;
+    width: 28vw;
+    height: 3vw;
+}
+section.jogo1 button.rosa{
+    background-color:#FA58D0;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    margin-left: 5vh;
+    border: none;
+    color: white;
+    font-size: 2.3em;
+    border-radius: 40px;
+    width: 50vw;
+    height: 8vw;
+    -webkit-box-shadow: 0px 10px 37px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 37px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 37px 0px rgba(0,0,0,0.75);
+}
+section.jogo1 button.alternativas{
+    background-color: #FA58D0;
+    margin-top: 10px;
+    border: none;
+    color: white;
+    font-size: 2.3em;
+    border-radius: 35px;
+    width: 22vw;
+    height: 5vw;
+    margin-left: 7vh;
+}
+
+section.jogo1 button.btn-answer{
+    background-color: #FA58D0;
+    margin-top: 10px;
+    border: none;
+    color: white;
+    font-size: 2.3em;
+    border-radius: 35px;
+    width: 22vw;
+    height: 5vw;
+    margin-left: 7vh;
+    cursor: pointer;
+}
+
+/*inicio section game over*/
+        section.gameover div button{
+            background: none;
+            border: none;
+            /* color: white; */
+            
+        }
+
+        section.gameover button.btn-math{
+            text-align: center;
+            background-color:#707070;
+            border: none;
+            color: white;
+            font-size: 2.5em;
+            border-radius: 50px;
+            width: 25vw;
+            height: 5vw;
+            margin-top: 50px;
+            margin-bottom: 10vh;
+        }
+        section.gameover div button{
+            background-color:#FA58D0;
+            border: none;
+            color: white;
+            font-size: 1.8em;
+            padding: 2vh 4vh;
+            border-radius: 50px;
+            width: 25vw;
+            height: 5vw;
+            font-family: 'Pixellari';
+            box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+        }
+        section.gameover div.fundo{
+            /*display: none;*/
+            background-color: rgba(255, 255, 255, 0.85);
+            width: 33vw;
+            height: 80vh;
+            border-radius: 60px;
+            padding: 25px;
+            -webkit-box-shadow: 0px 17px 75px 9px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 17px 75px 9px rgba(0,0,0,0.75);
+            box-shadow: 0px 17px 75px 9px rgba(0,0,0,0.75);
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        section.gameover{
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: column;
+            text-align: center;
+            height: 100%;
+        }
+
+    .fundo2{
+        /*display: none;*/
+       
+        background-color: #FF00BF;
+        width: 25vw;
+        height: 45vh;
+        border-radius: 60px;
+        padding: 25px;  
+    }
+
+    section.gameover button.btn-gameover{
+        text-align: center;
+        background-color:#707070;
+        border: none;
+        color: white;
+        font-size: 2.5em;
+        border-radius: 50px;
+        width: 25vw;
+        height: 5vw;
+        margin-top: 65px;
+        margin-bottom: 1vh;
+    }
+    
+    .pontuacao{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    h3 {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        text-align: center;
+        height: 100%;
+        font-family: 'Pixellari';
+        text-align: justify;
+        font-family: 'Pixellari';
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 50px;
+        color: white;
+    }
+
+    /*fim section game over*/
+
+    /*inicio section game over*/
+    section.gameover div button{
+        background: none;
+        border: none;
+        /* color: white; */
+        
+    }
+
+    section.gameover button.btn-math{
+        text-align: center;
+        background-color:#707070;
+        border: none;
+        color: white;
+        font-size: 2.5em;
+        border-radius: 50px;
+        width: 25vw;
+        height: 5vw;
+        margin-top: 50px;
+        margin-bottom: 10vh;
+    }
+    section.gameover div button{
+        background-color:#FA58D0;
+        border: none;
+        color: white;
+        font-size: 1.8em;
+        padding: 2vh 4vh;
+        border-radius: 50px;
+        width: 25vw;
+        height: 5vw;
+        font-family: 'Pixellari';
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+    }
+    section.gameover div button.btn-certo{
+        background-color:#FA58D0;
+        border: none;
+        color: white;
+        font-size: 1.8em;
+        padding: 2vh 4vh;
+        border-radius: 50px;
+        width: 25vw;
+        height: 5vw;
+        font-family: 'Pixellari';
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+    }
+    section.gamewinner div.fundo{
+        /*display: none;*/
+        background-color: rgba(255, 255, 255, 0.85);
+        width: 33vw;
+        height: 80vh;
+        border-radius: 60px;
+        padding: 25px;
+        -webkit-box-shadow: 0px 17px 75px 9px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 17px 75px 9px rgba(0,0,0,0.75);
+        box-shadow: 0px 17px 75px 9px rgba(0,0,0,0.75);
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    section.gamewinner{
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        text-align: center;
+        height: 100%;
+    }
+
+.fundo2{
+    /*display: none;*/
+   
+    background-color: #FF00BF;
+    width: 25vw;
+    height: 45vh;
+    border-radius: 60px;
+    padding: 25px;  
+}
+
+section.gamewinner button.btn-gamewinner{
+    text-align: center;
+    background-color:#707070;
+    border: none;
+    color: white;
+    font-size: 2.5em;
+    border-radius: 50px;
+    width: 25vw;
+    height: 5vw;
+    margin-top: 65px;
+    margin-bottom: 1vh;
+    font-family: 'Pixellari';
+}
+
+.pontuacao{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h3 {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+    font-family: 'Pixellari';
+    text-align: justify;
+    font-family: 'Pixellari';
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 35px;
+    color: white;
+}
+
+/*fim section game winner*/
